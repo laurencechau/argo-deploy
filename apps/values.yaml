@@ -3,7 +3,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/laurencechau/argo-deploy.git
-    targetRevision: master
+    targetRevision: main
 
 applications:
   - name: cert-manager
