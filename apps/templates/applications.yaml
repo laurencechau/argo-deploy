@@ -1,5 +1,5 @@
 {{- range .Values.applications }}
-{{- $config := $.Values.config -}}
+{{- $values := $.Values -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,12 +10,12 @@ metadata:
 spec:
   destination:
     namespace: {{ dig "destination" "namespace" .name . | quote }}
-    server: {{ $config.spec.destination.server | quote }}
+    server: {{ $values.spec.destination.server | quote }}
   project: {{ .project | default "default" }}
   source:
     path: {{ .path | default .name | quote }}
-    repoURL: {{ $config.spec.source.repoURL }}
-    targetRevision: {{ $config.spec.source.targetRevision }}
+    repoURL: {{ $values.spec.source.repoURL }}
+    targetRevision: {{ $values.spec.source.targetRevision }}
     {{- with .tool }}
     {{- . | toYaml | nindent 4 }}
     {{- end }}
