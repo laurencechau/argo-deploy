@@ -4,6 +4,12 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
+    email: lars.chau@gmail.com
+    # The Let's Encrypt production API server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Secret resource that will store the account's private key
+    privateKeySecretRef:
+      name: letsencrypt-prod-account-key
     solvers:
     - dns01:
         route53: {}
