@@ -7,3 +7,4 @@ spec:
 
 applications:
   - name: cert-manager
+  - name: aws-alb
