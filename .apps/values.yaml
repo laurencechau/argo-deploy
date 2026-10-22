@@ -8,4 +8,5 @@ spec:
 applications:
   - name: cert-manager
   - name: aws-alb
-    namespace: kube-system
+    destination: 
+      namespace: kube-system
